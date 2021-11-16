@@ -1,28 +1,44 @@
 /*
- * Program: 20211005
- * Author: Tony Comeau
- * Date: 10/5/21
- * Revision 11/26/21
- * 
- * Purpose: Introduce the idea of pointers in language
+ * Program: Exercise in Logic Structures
+ * Author: Warren Sheaffer
+ * Date: 09/21/21
+ *  Revision 11/16/21
+ * Purpose: This example is an exercise in implementing functions
+ * and the logic structures
  */
 
 #include <stdio.h>
+#include "lstructures.h"
 
-int swap(int *la, int *ra) //Left argument, right argument
+int main(void)
 {
-	int tmp = *la; //store value pointed to by left argument
-	*la = *ra; //move value stored in ra to la
-	*ra = tmp; //move stored value of la into ra
-	return(0);
-} //swap
 
-int main()
-{
-	int i = 6;
-	int j = 9;
-	printf("i is: %2d, j is %2d\n", i, j);
-   	swap(&i,&j); 
-	printf("i is: %2d, j is %2d\n", i, j);
-	return(0);
-} //main
+	while(1)
+	{
+		int n;
+		int val;
+		n = menu();
+		if (n != 0)
+		{
+		  printf("Enter test value: ");
+		  scanf("%d",&val);
+		} // if
+		switch(n)
+		{
+
+			case 1: iffunc(val);
+				break; // iffunc();
+			case 2: forfunc(val);
+			        break;
+			case 3: whilefunc(val);
+			   break;
+			case 4: dowhilefunc(val);
+			   break;
+			default: n=0;
+				 break;
+		} // switch
+		if (n == 0) break;
+
+	} // while
+
+} // main
